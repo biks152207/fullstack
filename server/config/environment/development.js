@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/trello-dev'
+    uri: 'mongodb://biks12:beatles1@ds043338.mongolab.com:43338/bikram'
   },
 
   seedDB: true
