@@ -1,10 +1,6 @@
 (function(){
   'use strict';
   var Profile = function($scope, Status, md5, $rootScope){
-    var profile = this;
-    profile.addStatus = addStatus;
-    profile.md5 = md5;
-    profile.statusData = Status;
 
     function addStatus() {
       if(profile.statusText) {   
@@ -20,7 +16,12 @@
         profile.statusText = '';
       }
     }
-  }
+    var profile = this;
+    profile.addStatus = addStatus;
+    profile.md5 = md5;
+    profile.statusData = Status;
+
+  };
   angular.module('trelloApp')
     .controller('ProfileCtrl',[
       '$scope',
@@ -28,5 +29,5 @@
       'md5',
       '$rootScope',
       Profile
-    ])
-})()
+    ]);
+})();

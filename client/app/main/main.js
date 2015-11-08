@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('trelloApp')
-  .config(function ($stateProvider) {
+  .config(['$stateProvider', function ($stateProvider) {
     $stateProvider
       .state('main', {
         url: '/',
@@ -9,4 +9,4 @@ angular.module('trelloApp')
         controller: 'MainCtrl',
         controllerAs: 'main'
       });
-  });
+  }]);

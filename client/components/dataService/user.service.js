@@ -23,14 +23,11 @@
       newUserRef: newUserRef,
       getUserData: getUserData,
       getLoggedInUser: getLoggedInUser
-    }
+    };
 
-  }
+  };
   angular
     .module('trelloApp')
-    .factory('User', [
-      '$firebaseObject',
-      UserService
-    ]);
+    .factory('serveUser', UserService);
 
-})()
+})();

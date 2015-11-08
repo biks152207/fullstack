@@ -3,17 +3,15 @@
  
    var MainFunc = function($location,dataServices){
     var main = this;
-    main.lists = dataServices.getStories()
-   }
+    main.lists = dataServices.getStories();
+   };
 
-   var NestedFunc = function(){
-    var nest = this;
-    nest.name ="bikram";
-   }
 
    angular.module('trelloApp')
-   .controller('MainCtrl', MainFunc)
-   .controller('NestedCtrl', NestedFunc)
-   MainFunc.$inject = ['$location', 'dataServices'];
+   .controller('MainCtrl', [
+      '$location',
+      'dataServices',
+      MainFunc
+    ]);
 
-})()
+})();

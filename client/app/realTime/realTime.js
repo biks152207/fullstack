@@ -7,12 +7,12 @@
         templateUrl:'app/realTime/realTime.html',
         controller: 'realTimeController',
         controllerAs: 'real'
-      })
-  }
+      });
+  };
   angular.module('trelloApp')
   .config(['$stateProvider',
     stockDogRoue
-  ])
+  ]);
 })();
 
 // 'use strict';

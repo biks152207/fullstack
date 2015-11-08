@@ -1,3 +1,4 @@
+(function(){
 'use strict';
 
 angular.module('trelloApp', [
@@ -12,23 +13,22 @@ angular.module('trelloApp', [
   'ngMessages',
   'angular-md5'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider
     .otherwise('/');
 
   
 
   $locationProvider.html5Mode(true);
-})
-.run(['$rootScope', '$state', 'User', function($rootScope, $state, User) {
+}])
+.run(['$rootScope', '$state', 'serveUser',function($rootScope, $state, serveUser) {
 
-      // Listen for changes to the state and run the code
-      // in the callback when the change happens
       $rootScope.$on('$stateChangeStart', function() {
-
-        var loggedInUser = User.getLoggedInUser();
+        var loggedInUser = serveUser.getLoggedInUser();
         if(loggedInUser) {
           $rootScope.loggedInUserData = loggedInUser.password;
         }
       });
-    }]);
+  }]);
+
+})();

@@ -12,13 +12,13 @@
             assignee: 'Brian Ford',
             route: '/realTime'
         }
-    ]
+    ];
     this.getStories = function(){
       return stories;
-    }
-  }
+    };
+  };
   angular.module('trelloApp')
   .service('dataServices',[
     dataService
-  ])
-})()
+  ]);
+})();
