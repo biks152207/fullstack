@@ -1,0 +1,34 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<!-- <header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
+    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+  </div>
+</header> -->
+<div class="container">
+<div layout="row">
+ <h1 class="md-title text-center" flex>Fullstack Application.</h1>
+
+</div>
+<p class="md-subhead text-center">Yo! I am a fullstack developer and with this blog i will be adding my fun in fullstack developement.</p>
+</div>
+
+<div class="container">
+  <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+  <md-whiteframe class="md-whiteframe-1dp" flex ng-repeat="list in main.lists" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+    <h4>{{list.title}}</h4>
+    <br>
+    <a class="md-caption" href="{{list.route}}">View</a>
+  </md-whiteframe>
+  </div>
+</div>
+
+<footer class="footer">
+<!--   <div class="container">
+      <p>Angular Fullstack v2.0.13 |
+        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+  </div> -->
+</footer>

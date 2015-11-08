@@ -1,0 +1,77 @@
+<div layout="row">
+ 	<h3 class="text-center" flex>Real time status update.</h3>
+</div>
+<script type="text/ng-template" id="emailError">
+	<p ng-message="required">Please enter your email.</p>
+	<p ng-message="email">Please enter valid email.</p>
+</script>
+<script type="text/ng-template" id="passwordError">
+  <p ng-message="minlength">Please enter atleast 6 character length password.</p>
+  <p ng-message="maxlength">Please enter less than 15 character length password.</p>
+  <p ng-message="required">Please enter your password.</p>
+
+</script>
+<script type="text/ng-template" id="usernameError">
+  <p ng-message="minlength">Please enter atleast 3 character length username.</p>
+  <p ng-message="maxlength">Please enter less than 15 character length username.</p>
+  <p ng-message="required">Please enter your username.</p>
+</script>
+<md-content class="md-padding">
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="login">
+      <md-content class="md-padding">
+        <h1 class="md-display-2">Login</h1>
+        <form name="loginForm" novalidate ng-submit="real.login(loginForm.$valid)">
+	        <md-input-container>
+	          <label>Email</label>
+	          <input ng-model="real.email" name="email" type="email" required>
+	        </md-input-container>
+	        <md-input-container>
+	          <label>Password</label>
+	          <input type="password" name="password" ng-model="real.password" type="text" ng-minlength="6" ng-maxlength="15" required>
+	        </md-input-container>
+	        <div class="alert alert-warning" role="alert" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched" ng-show="real.showError">
+	      	  <div ng-messages-include="emailError"></div>
+      	 	</div>
+	        <md-button class="md-raised md-warn" type="submit">Login</md-button>
+      	</form>
+
+      </md-content>
+    </md-tab>
+    <md-tab label="register">
+      <md-content class="md-padding">
+        <h1 class="md-display-2">Register</h1>
+        <form name="register" novalidate ng-submit="real.addUser(register.$valid)">
+          <md-input-container>
+            <label>User Name</label>
+            <input ng-model="real.username" type="text" name="username" required ng-minlength="3" ng-maxlength="15">
+          </md-input-container>
+          <md-input-container>
+            <label>Email</label>
+            <input ng-model="real.email" name="email" type="text" type="email" required>
+          </md-input-container>
+          <md-input-container>
+            <label>Password</label>
+            <input type="password" name="password" ng-model="real.password" type="text" ng-minlength="6" ng-maxlength="15" required>
+          </md-input-container>
+          <div class="alert alert-warning" role="alert" ng-messages="register.email.$error" ng-if="register.email.$touched" ng-show="real.showError">
+            <div ng-messages-include="emailError"></div>
+          </div>
+          <div class="alert alert-warning" role="alert" ng-messages="register.username.$error" ng-if="register.username.$touched" ng-show="real.showError">
+            <div ng-messages-include="usernameError"></div>
+          </div>
+          <div class="alert alert-warning" role="alert" ng-messages="register.password.$error" ng-if="register.password.$touched" ng-show="real.showError">
+            <div ng-messages-include="passwordError"></div>
+          </div>
+          <md-button class="md-raised md-primary" ng-click="auth.createUser()">
+            Register
+          </md-button>
+        </form>
+      </md-content>
+    </md-tab>
+
+  </md-tabs>
+</md-content>
+<div layout="row">
+	<div ui-view></div>
+</div>
